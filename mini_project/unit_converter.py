@@ -1,9 +1,11 @@
-# Unit Converter
-# Supports Length, Weight, and Temperature conversions
+"""Unit Converter.
+
+Supports Length, Weight, and Temperature conversions.
+"""
 
 
 def convert_length(value, from_unit, to_unit):
-    # Convert everything to meters first, then to the target unit
+    """Convert a length from one unit to another."""
     to_meters = {
         "km": 1000,
         "m": 1,
@@ -20,7 +22,7 @@ def convert_length(value, from_unit, to_unit):
 
 
 def convert_weight(value, from_unit, to_unit):
-    # Convert everything to grams first, then to the target unit
+    """Convert a weight from one unit to another."""
     to_grams = {
         "kg": 1000,
         "g": 1,
@@ -34,10 +36,10 @@ def convert_weight(value, from_unit, to_unit):
 
 
 def convert_temperature(value, from_unit, to_unit):
+    """Convert a temperature from one unit to another."""
     if from_unit == to_unit:
         return value
 
-    # First convert to Celsius
     if from_unit == "celsius":
         celsius = value
     elif from_unit == "fahrenheit":
@@ -47,18 +49,20 @@ def convert_temperature(value, from_unit, to_unit):
     else:
         return None
 
-    # Then convert Celsius to target
     if to_unit == "celsius":
         return celsius
-    elif to_unit == "fahrenheit":
+
+    if to_unit == "fahrenheit":
         return (celsius * 9 / 5) + 32
-    elif to_unit == "kelvin":
+
+    if to_unit == "kelvin":
         return celsius + 273.15
-    else:
-        return None
+
+    return None
 
 
 def main():
+    """Run the unit converter program."""
     print("===== Unit Converter =====")
     print("1. Length")
     print("2. Weight")
